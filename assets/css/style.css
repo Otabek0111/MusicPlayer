@@ -21,9 +21,9 @@ body {
     width: 100%;
     background: url("/assets/img/img1.jpg");
     background-repeat: no-repeat;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    animation: slidein 100s forwards infinite alternate;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: slidein 120s forwards infinite alternate;
 }
 
 @keyframes slidein {
@@ -59,7 +59,7 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: inherit;
-    -webkit-box-reflect: below -5px linear-gradient(transparent, transparent rgba(0, 0, 0, 0.2));
+    -webkit-box-reflect: below -5px linear-gradient(transparent, transparent rgba(0, 0, 0, 0.4));
     transform-origin: center;
     transform: perspective(800px);
     transition: 0.5s ease-out;
@@ -73,5 +73,100 @@ body {
     justify-content: center;
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 99%;
+    width: 100%;
+    border-radius: inherit;
+    opacity: 0;
+    transition: all 0.4s linear;
 }
+
+.swiperSlide:hover .overlay {
+    opacity: 1;
+}
+
+.swiperSlide .overlay ion-icon {
+    opacity: 0;
+}
+
+.swiperSlideActive:hover .overlay ion-icon {
+    opacity: 1;
+    font-size: 4rem;
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+}
+
+.musicPlayer { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: (--primary-color);
+    width: 380px;
+    padding: 10px 30px;
+    border-radius: 20px;
+}
+
+.musicPlayer h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+#progress {
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    -webkit-appearance: none; 
+    background: #383838;
+    border-radius: 5px;
+    margin: 32px 0 24px;
+    cursor: pointer;
+}
+
+#progress::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    -webkit-appearance: none;
+    background: grey;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    outline: 4px solid var(--primary-color);
+    box-shadow: 0 6px 12px rgba(5, 36, 28, 0.3);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    aspect-ratio: 1/1;
+    margin: 20px;
+    background: rgba(163, 162, 164, 0.3);
+    color: var(--primary-clr);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    outline: 0;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(5, 36, 28, 0.3);
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.controls button:is(:hover, :focus-visible) {
+    transform: scale(0.96);
+  }
+  
+  .controls button:nth-child(2) {
+    transform: scale(1.3);
+  }
+  
+  .controls button:nth-child(2):is(:hover, :focus-visible) {
+    transform: scale(1.25);
+  }
